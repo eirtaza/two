@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 
 class registerController extends Controller
 {
-    public function get(){
+    public function get()
+    {
         return view('register');
     }
 
-    public function post(Request $request){
+    public function post(Request $request)
+    {
         $this->validate($request, [
             'firstName' => 'required|max:255',
             'lastName' => 'required|max:255',
@@ -20,7 +22,29 @@ class registerController extends Controller
             'password_confirmation' => 'required|min:5'
         ]);
 
-        User::create($request->all());
+        $newUser = User::create($request->all());
+        $newUser->code = str_random(40);
+        $newUser->save();
 
+        //send verification email
+    }
+
+    public function created(){
+        return view('created');
+    }
+
+    public function verify($id, $code)
+    {
+        $user = \App\User::find($id);
+        $status = 0;
+        if ($user->code == $code) {
+            $user->verified = 1;
+            $user->save();
+            $status = 'Your account has been activated';
+        } else {
+            $status = "Problem in activation";
+        }
+
+        return view('verify', compact('status'));
     }
 }
