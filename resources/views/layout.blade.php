@@ -19,7 +19,9 @@
 
 @include('partials.nav')
 
-@yield('content')
+<div class="container-fluid">
+    @yield('content')
+</div>
 
 </body>
 </html>
