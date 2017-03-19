@@ -4,8 +4,8 @@
             <a class="navbar-brand" href="#">WebSiteName</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Login</a></li>
-            <li class="active"><a href="#">Signup</a></li>
+            <li class="active"><a href="#">{{ trans("strings.login") }}</a></li>
+            <li class="active"><a href="#">{{ trans("strings.signup") }}</a></li>
         </ul>
     </div>
 </nav>
