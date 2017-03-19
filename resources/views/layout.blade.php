@@ -15,6 +15,12 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<style type="text/css">
+    .formelem{
+        margin-top: .3em;
+        margin-bottom: .3em;
+    }
+</style>
 <body>
 
 @include('partials.nav')

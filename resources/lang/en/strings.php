@@ -4,6 +4,6 @@ return [
 
 
     'login' => 'Login',
-    'signup' => 'Signup',
+    'signup' => 'Sign up',
 
 ];
